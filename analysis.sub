@@ -1,0 +1,17 @@
+Universe = vanilla
+Executable = runAnalysis.sh
+Arguments = $(seed) 250 
+request_cpus = 2
+request_memory = 4000
+requirements =  TARGET.HAS_OSG_WN_CLIENT =?= TRUE && (TARGET.MaxJobRetirementTime >= 86400)
+x509userproxy = /tmp/x509up_u10105
+
+should_transfer_files = YES
+
+transfer_input_files = ZTZ0_LO_slc7_amd64_gcc700_CMSSW_10_6_19_tarball.tar.xz,fragment.py
+
+Error = log/job_$(Cluster)-$(Process).err
+Output = log/job_$(Cluster)-$(Process).out
+Log = log/job_$(Cluster).log
+
+Queue seed from seed_list.txt
